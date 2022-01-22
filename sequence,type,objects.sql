@@ -1,7 +1,7 @@
 
 
 CREATE SEQUENCE universe_seq 
-            START WITH 1O
+            START WITH 10
             INCREMENT BY 1
             MINVALUE 10
             MAXVALUE 99999999999999999
@@ -9,25 +9,25 @@ CREATE SEQUENCE universe_seq
             NOCYCLE;
 
 CREATE SEQUENCE ENTITY_seq 
-            START WITH 2O
+            START WITH 20
             INCREMENT BY 1
-            MINVALUE 10
+            MINVALUE 20
             MAXVALUE 99999999999999999
             NOCACHE
             NOCYCLE;
 
 CREATE SEQUENCE SCOPE_seq 
-            START WITH 3O
+            START WITH 30
             INCREMENT BY 1
-            MINVALUE 10
+            MINVALUE 30
             MAXVALUE 99999999999999999
             NOCACHE
             NOCYCLE;
 
 CREATE SEQUENCE FOCUS_seq 
-            START WITH 4O
+            START WITH 40
             INCREMENT BY 1
-            MINVALUE 10
+            MINVALUE 40
             MAXVALUE 999999999999999999999
             NOCACHE
             NOCYCLE;
