@@ -24,6 +24,8 @@ create table audit_universe
 
                     );
 
+
+
 --3 Audit scope ( the entire audit is call plan)
     
    CREATE TABLE AUDIT_SCOPE 
@@ -38,6 +40,7 @@ create table audit_universe
                         RISK_RATING      VARCHAR2(3000),    --(very high, high, medium, low, process improvement)
                         FREQUENCY        VARCHAR2(3000),    --(daily, weekly, monthly, quarterly, biannual, annual)
                         AUDIT_TYPE       VARCHAR2(3000),    -- (routine, adhoc, spot check, follow-up, special investigation)
+                        SCHEDULLED_DATE DATE,
                         AUDIT_START_DATE  DATE,
                         AUDIT_END_DATE    DATE,
                         APPROVAL_STATUS   VARCHAR2(3000),     --(DRAFT,UNDER-REVIEW,COMPLETED)
@@ -47,6 +50,8 @@ create table audit_universe
                         Create_Date  DATE DEFAULT SYSDATE
 
                     );
+
+
 
 
 -- 4 AUDIT FOCUS 
@@ -77,6 +82,13 @@ create table audit_universe
                             Auth_stat  VARCHAR2(1) DEFAULT 'A',  --  (A - Authorised, U - unathorised)
                             Create_Date  DATE DEFAULT SYSDATE
                         );
+
+        --INDEX 
+         CREATE INDEX ENTITY_IDX ON AUDIT_ENTITY (ENTITY_NAME,UNIVERSE_ID);
+        CREATE INDEX UNIVERSE_IDX ON audit_universe (UNIVERSE_NAME);
+         CREATE INDEX FOCUS_IDX ON AUDIT_FOCUS (AREA_OF_FOCUS,SCOPE_ID);
+          CREATE INDEX SCOPE_IDX ON AUDIT_SCOPE (SCOPE_OF_AUDIT,ENTITY_ID);
+
 
  --5 
 

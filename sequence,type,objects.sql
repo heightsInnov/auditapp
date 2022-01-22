@@ -1,0 +1,66 @@
+
+
+CREATE SEQUENCE universe_seq 
+            START WITH 1O
+            INCREMENT BY 1
+            MINVALUE 10
+            MAXVALUE 99999999999999999
+            NOCACHE
+            NOCYCLE;
+
+CREATE SEQUENCE ENTITY_seq 
+            START WITH 2O
+            INCREMENT BY 1
+            MINVALUE 10
+            MAXVALUE 99999999999999999
+            NOCACHE
+            NOCYCLE;
+
+CREATE SEQUENCE SCOPE_seq 
+            START WITH 3O
+            INCREMENT BY 1
+            MINVALUE 10
+            MAXVALUE 99999999999999999
+            NOCACHE
+            NOCYCLE;
+
+CREATE SEQUENCE FOCUS_seq 
+            START WITH 4O
+            INCREMENT BY 1
+            MINVALUE 10
+            MAXVALUE 999999999999999999999
+            NOCACHE
+            NOCYCLE;
+
+
+
+CREATE OR REPLACE TYPE data_items AS OBJECT
+(
+    ENTITY_ID NUMBER,
+    SCOPE_OF_AUDIT VARCHAR2 (2000),
+    AUDIT_PERIOD VARCHAR2 (500),
+    PURPOSE VARCHAR2 (3000),
+    SCOPE  VARCHAR2 (3000),
+    SCOPE_OBJECTIVES VARCHAR2 (3000),
+    RISK_RATING VARCHAR2 (3000),
+    FREQUENCY VARCHAR2 (3000),
+    AUDIT_TYPE VARCHAR2 (3000),
+    SCHEDULLED_DATE DATE,
+    AUDIT_START_DATE DATE,
+    AUDIT_END_DATE DATE
+
+)
+
+create or replace type Rec_data_scope as table of data_items
+
+
+CREATE OR REPLACE TYPE data_focusitems AS OBJECT
+(
+    SCOPE_ID NUMBER,
+    AREA_OF_FOCUS VARCHAR2 (2000),
+    SCHEDULLED_DATE VARCHAR2 (500),
+    WORK_PROGRAM_START VARCHAR2 (3000),
+    RISK_RATING  VARCHAR2 (3000)
+)
+
+create or replace type Rec_data_focus as table of data_focusitems
